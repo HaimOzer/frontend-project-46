@@ -1,0 +1,17 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/HaimOzer/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/HaimOzer/frontend-project-46/actions)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "commonjs",
+  "bin": {
+    "gendiff": "./gendiff.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^11.1.0"
+  }
+}
