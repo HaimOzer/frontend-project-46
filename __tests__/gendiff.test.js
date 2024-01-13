@@ -1,9 +1,17 @@
-import { genDiff } from '../gendiff'
-import test from 'jest'
-test('identical keys', () => {
-	const filepath1 = './__fixtures/data1.json'
-	const filepath2 = './__fixtures/data2.json'
-	const result = genDiff(filepath1, filepath2)
-	const toEqual = `  a: 1\n  b: 2\n  c: 3`
-	expect(result).toEqual(toEqual)
+import path, { dirname } from 'path'
+import getFixturesPath from '../src/getFixturesPath.js'
+import { fileURLToPath } from 'url'
+import genDiff from '../src/differencer.js'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+test('correct path to __fixtures__ directory', () => {
+	const expectedPath = path.resolve(
+		__dirname,
+		'..',
+		'__fixtures__',
+		'file1.json'
+	)
+	expect(getFixturesPath('file1.json')).toBe(expectedPath)
 })
