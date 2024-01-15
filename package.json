@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "[![Actions Status](https://github.com/HaimOzer/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/HaimOzer/frontend-project-46/actions)",
 	"scripts": {
-		"test": "npx jest",
+		"test": "jest --watch",
 		"lint": "eslint ."
 	},
 	"type": "module",
