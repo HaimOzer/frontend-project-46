@@ -1,0 +1,40 @@
+name: CodeClimate
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  codeclimate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Upload coverage to CodeClimate
+        run: |
+          wget -qO- https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > cc-test-reporter
+          chmod +x cc-test-reporter
+          ./cc-test-reporter before-build
+          ./cc-test-reporter after-build --exit-code $?
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: codeclimate
+    steps:
+      - name: Upload coverage to CodeClimate
+        run: |
+          ./cc-test-reporter upload-coverage
