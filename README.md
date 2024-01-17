@@ -4,8 +4,18 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/6cccef303005f710685b/maintainability)](https://codeclimate.com/github/HaimOzer/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6cccef303005f710685b/test_coverage)](https://codeclimate.com/github/HaimOzer/frontend-project-46/test_coverage)
 
-### Demonstration
+#### gendiff-info and compare simple objects
 
-[![asciicast](https://asciinema.org/a/630010.svg)](https://asciinema.org/a/630010)
+[![asciicast](https://asciinema.org/a/631850.svg)](https://asciinema.org/a/631850)
 
-gendiff help - https://asciinema.org/a/631135
+#### stylish format of nested objects
+
+[![asciicast](https://asciinema.org/a/631852.svg)](https://asciinema.org/a/631852)
+
+#### plain format of nested objects
+
+[![asciicast](https://asciinema.org/a/631853.svg)](https://asciinema.org/a/631853)
+
+#### json format of nested objects
+
+[![asciicast](https://asciinema.org/a/631854.svg)](https://asciinema.org/a/631854)
