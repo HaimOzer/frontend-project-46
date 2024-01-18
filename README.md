@@ -5,11 +5,11 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/6cccef303005f710685b/maintainability)](https://codeclimate.com/github/HaimOzer/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6cccef303005f710685b/test_coverage)](https://codeclimate.com/github/HaimOzer/frontend-project-46/test_coverage)
 
-# Project Name: Difference Generator
+## Project Name: Difference Generator
 
-## Description
+### Description
 
-'Difference Generator' is a Command Line Interface (CLI) utility designed to generate and display differences between two files. This tool can be particularly useful for developers who want to compare configuration files, JSON files, or any other structured data.
+Difference Generator is a Command Line Interface (CLI) utility designed to generate and display differences between two files. This tool can be particularly useful for developers who want to compare configuration files, JSON files, or any other structured data.
 
 Supported files and formats:
 
@@ -23,7 +23,7 @@ Supported files and formats:
 3. Install project dependencies: `make install`;
 4. Install the package with the utility locally: `npm link`.
 
-# Usage
+## Usage
 
 After installation, you can learn how to use the utility using the **gendiff** command and the **-h** flag: `gendiff -h`.
 
@@ -40,14 +40,15 @@ Options:
 ```
 
 **_-f --format_**  
- Report format. Possible values:
-**[_stylish (default option)_]**(### stylish format of nested objects)
-Structured output.  
-**_plain_**
+      Report format. Possible values:  
+- **_stylish_ (default option)**  
+Structured output.  [example](#stylish-format-of-nested-objects)  
+- **_plain_**  
 Report in plain text. List includes only changed, added or deleted keys, unchanged keys are skipped.  
-**_json_**  
- Output in json format.  
-**_filepath1 filepath2_**  
+- **_json_**  
+ Output in json format.
+
+**_filepath1, filepath2_**  
  Path to files to compare. Both absolute and relative paths are acceptable. Supported file extensions .json, .yaml и .yml
 
 Run the tests: `make test`.
