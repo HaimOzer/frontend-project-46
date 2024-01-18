@@ -5,10 +5,13 @@ gendiff:
 	node bin/gendiff.js	
 
 install:
-	npm ci
+	npm install
 
 test:
 	npm test
+
+test-coverage:
+	npm test -- --coverage
 
 lint:
 	npx eslint .
