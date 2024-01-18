@@ -6,6 +6,7 @@ import getContentFile from '../src/getContentFile.js'
 import yaml from 'js-yaml'
 import genDiff from '../src/getDifferents.js'
 import formatSelector from '../src/formatters/index.js'
+import stylishFormat from '../src/formatters/stylish'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -53,6 +54,13 @@ describe('genDiff function', () => {
 		const data = getFixturesPath('file1.json')
 		expect(() => formatSelector(data, 'stringify')).toThrow(
 			'Unknown format type'
+		)
+	})
+
+	test('should throw an error for unknown node type', () => {
+		const tree = [{ type: 'unknown', key: 'name', value: 'John' }]
+		expect(() => stylishFormat(tree)).toThrowError(
+			'Unknown type! unknown is wrong!'
 		)
 	})
 })
