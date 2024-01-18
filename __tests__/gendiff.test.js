@@ -29,6 +29,17 @@ describe('getExtension function', () => {
 	})
 })
 
+import parse from '../src/parsers'
+
+describe('parse function', () => {
+	test('should throw an error for unknown format', () => {
+		const invalidFormat = 'csv'
+		expect(() => parse('', invalidFormat)).toThrowError(
+			`Unknown type! Type ${invalidFormat} is not supported!`
+		)
+	})
+})
+
 describe('genDiff function', () => {
 	const cases = ['json', 'yaml', 'yml']
 	const expectedStylish = getContentFile('expectedStylishFormat.txt')
@@ -54,13 +65,6 @@ describe('genDiff function', () => {
 		const data = getFixturesPath('file1.json')
 		expect(() => formatSelector(data, 'stringify')).toThrow(
 			'Unknown format type'
-		)
-	})
-
-	test('should throw an error for unknown node type', () => {
-		const tree = [{ type: 'unknown', key: 'name', value: 'John' }]
-		expect(() => stylishFormat(tree)).toThrowError(
-			'Unknown type! unknown is wrong!'
 		)
 	})
 })
