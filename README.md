@@ -8,7 +8,7 @@
 ## Project Name: Difference Generator
 
 > "File Harmony: Making Differences Visible with our CLI Tool"
-> <img src="src/img/gendiffLogo1.png" alt="project's logo">
+> <img src="src/img/gendiffLogo1.png" alt="project's logo" width=45% height=30%>
 
 ### Description
 
