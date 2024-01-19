@@ -7,7 +7,7 @@
 
 ## Project Name: Difference Generator
 
-> > "File Harmony: Making Differences Visible with our CLI Tool"
+> "File Harmony: Making Differences Visible with our CLI Tool"
 
 ### Description
 
