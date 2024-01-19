@@ -8,22 +8,7 @@ const setValue = currentValue => {
 	return '[complex value]'
 }
 
-/**
- * Builds a plain format representation of changes in a tree structure.
- *
- * @param {Object} tree - The tree structure representing changes.
- * @returns {string} The plain format representation of changes.
- */
-
 function plainFormat(tree) {
-	/**
-	 * Recursively iterates over the tree structure and generates plain format strings.
-	 *
-	 * @param {Array} node - The current node in the tree.
-	 * @param {string} path - The current path in the tree.
-	 * @returns {string} The plain format representation of changes within the node.
-	 */
-
 	const iter = (node, path) => {
 		const result = node
 			.filter(item => item.type !== 'unchanged')
