@@ -7,6 +7,7 @@ import yaml from 'js-yaml'
 import genDiff from '../src/getDifferents.js'
 import formatSelector from '../src/formatters/index.js'
 import stylishFormat from '../src/formatters/stylish'
+import plainFormat from '../src/formatters/plain.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -66,5 +67,29 @@ describe('genDiff function', () => {
 		expect(() => formatSelector(data, 'stringify')).toThrow(
 			'Unknown format type'
 		)
+	})
+})
+
+describe('stylishFormat', () => {
+	test('should throw an error for unknown type', () => {
+		const tree = [{ key: 'status', type: 'unknown', value: 'error' }]
+
+		// Wrap the function call in a function to expect the error
+		const callStylishFormat = () => stylishFormat(tree)
+
+		// Expecting an error to be thrown with a specific message
+		expect(callStylishFormat).toThrowError('Unknown type! unknown is wrong!')
+	})
+})
+
+describe('plainFormat', () => {
+	test('should throw an error for unknown type', () => {
+		const tree = [{ key: 'status', type: 'unknown', value: 'error' }]
+
+		// Wrap the function call in a function to expect the error
+		const callPlainFormat = () => plainFormat(tree)
+
+		// Expecting an error to be thrown with a specific message
+		expect(callPlainFormat).toThrowError('Unknown type! unknown is wrong!')
 	})
 })
