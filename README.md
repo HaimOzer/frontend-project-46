@@ -57,7 +57,7 @@ Run the tests: `make test`.
 
 Run the linter: `make lint`.
 
-Put your files to **fixtures** directory and run - example `gendiff(file1, file2)`
+Put your files to **fixtures** directory and run - example `gendiff file1.json file2.yaml`
 
 ## Examples
 
