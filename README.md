@@ -8,7 +8,6 @@
 ## Project Name: Difference Generator
 
 > > "File Harmony: Making Differences Visible with our CLI Tool"
-> > <img src="src/gendiffLogo.svg" alt="Icon" width="55%" height="50%">
 
 ### Description
 
@@ -47,8 +46,7 @@ Options:
 - **_stylish_ (default option)**  
   Structured output. [example](#stylish-format-of-nested-objects)
 - **_plain_**  
-  Report in plain text. List includes only changed, added or deleted keys, unchanged keys are skipped.  
-  [example](#plain-format-of-nested-objects)
+  Report in plain text. List includes only changed, added or deleted keys, unchanged keys are skipped. [example](#plain-format-of-nested-objects)
 - **_json_**  
   Output in json format. [example](#json-format-of-nested-objects)
 
