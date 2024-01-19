@@ -36,10 +36,8 @@ function stylishFormat(tree, depth = 1, indentCount = 4, indent = ' ') {
 			case 'removed':
 				return `${changedLineIndent}- ${node.key}: ${stringify(node.value, depth + 1)}`
 			case 'updated':
-				return [
-${changedLineIndent}- ${node.key}: ${stringify(node.value1, depth + 1)}`,`
-${changedLineIndent}+ ${node.key}: ${stringify(node.value2, depth + 1	)}`,
-].join('\n')
+				return [`${changedLineIndent}- ${node.key}: ${stringify(node.value1, depth + 1)}`,
+					`${changedLineIndent}+ ${node.key}: ${stringify(node.value2, depth + 1)}`,].join('\n')
 			case 'nested':
 				return `${currentIndent}${node.key}: ${stylishFormat(node.children, depth + 1)}`
 			default:
