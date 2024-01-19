@@ -17,15 +17,11 @@ function plainFormat(tree) {
 				const currentPath = buildPath(path, key)
 				switch (type) {
 					case 'added':
-						return `Property '${currentPath}' was added with value: ${setValue(
-							value
-						)}`
+						return `Property '${currentPath}' was added with value: ${setValue(value)}`
 					case 'removed':
 						return `Property '${currentPath}' was removed`
 					case 'updated':
-						return `Property '${currentPath}' was updated. From ${setValue(
-							obj.value1
-						)} to ${setValue(obj.value2)}`
+						return `Property '${currentPath}' was updated. From ${setValue(obj.value1)} to ${setValue(obj.value2)}`
 					case 'nested':
 						return iter(obj.children, currentPath)
 					default:
