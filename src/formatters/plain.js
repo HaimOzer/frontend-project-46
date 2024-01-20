@@ -11,7 +11,7 @@ const setValue = currentValue => {
 function plainFormat(tree) {
 	const iter = (node, path) => {
 		const result = node
-			.filter(item => item.type !== 'unchanged');
+			.filter(item => item.type !== 'unchanged')
 			.map(obj => {
 				const { key, type, value } = obj;
 				const currentPath = buildPath(path, key);
