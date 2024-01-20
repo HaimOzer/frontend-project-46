@@ -7,18 +7,18 @@
  * @throws {Error} If the specified format is not supported.
  */
 
-import yaml from 'js-yaml'
+import yaml from 'js-yaml';
 
 const parse = (data, format) => {
 	switch (format) {
 		case 'json':
-			return JSON.parse(data)
+			return JSON.parse(data);
 		case 'yml':
 		case 'yaml':
-			return yaml.load(data)
+			return yaml.load(data);
 		default:
-			throw new Error(`Unknown type! Type ${format} is not supported!`)
+			throw new Error(`Unknown type! Type ${format} is not supported!`);
 	}
-}
+};
 
 export default parse
