@@ -7,21 +7,21 @@
  * @throws {Error} Throws an error if the specified format is unknown.
  */
 
-import stylishFormat from './stylish.js';
-import plainFormat from './plain.js';
-import jsonFormat from './json.js';
+import stylishFormat from './stylish.js'
+import plainFormat from './plain.js'
+import jsonFormat from './json.js'
 
 const formatSelector = (data, format) => {
 	switch (format) {
 		case 'stylish':
-			return stylishFormat(data);
+			return stylishFormat(data)
 		case 'plain':
-			return plainFormat(data);
+			return plainFormat(data)
 		case 'json':
-			return jsonFormat(data);
+			return jsonFormat(data)
 		default:
-			throw new Error('Unknown format type');
+			throw new Error('Unknown format type')
 	}
-};
+}
 
 export default formatSelector

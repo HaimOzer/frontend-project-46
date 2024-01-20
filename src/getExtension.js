@@ -5,8 +5,8 @@
  * @returns {string} The file extension without the leading dot.
  */
 
-import path from 'path';
+import path from 'path'
 
-const getExtension = data => path.extname(data).replace('.', '');
+const getExtension = data => path.extname(data).replace('.', '')
 
 export default getExtension
