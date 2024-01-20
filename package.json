@@ -7,7 +7,7 @@
 		"lint": "eslint ."
 	},
 	"type": "module",
-	"main": "bin/gendiff.js",
+	"main": "src/getDifferents",
 	"bin": {
 		"gendiff": "bin/gendiff.js"
 	},
