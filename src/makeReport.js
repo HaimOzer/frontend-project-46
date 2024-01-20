@@ -15,7 +15,7 @@ import _ from 'lodash';
 
 const makeReport = (data1, data2) => {
   const unitedFiles = { ...data1, ...data2 };
-  const keys = Object.keys(unitedFiles).sort();
+  const keys = _.sortBy(Object.keys(unitedFiles), (key) => key);
 
   const compareData = keys.map((key) => {
     const value1 = data1[key];
