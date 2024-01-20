@@ -5,6 +5,6 @@
  * @returns {string} A JSON-formatted string representing the provided data.
  */
 
-const jsonFormat = data => JSON.stringify(data)
+const jsonFormat = (data) => JSON.stringify(data);
 
-export default jsonFormat
+export default jsonFormat;

@@ -5,12 +5,12 @@
  * @returns {string} The content of the specified file.
  */
 
-import fs from 'fs'
-import getFixturesPath from './getFixturesPath.js'
+import fs from 'fs';
+import getFixturesPath from './getFixturesPath.js';
 
-const getContentFile = file => {
-	const filepath = getFixturesPath(file)
-	const fileContent = fs.readFileSync(filepath, { encoding: 'utf8' })
-	return fileContent
-}
-export default getContentFile
+const getContentFile = (file) => {
+  const filepath = getFixturesPath(file);
+  const fileContent = fs.readFileSync(filepath, { encoding: 'utf8' });
+  return fileContent;
+};
+export default getContentFile;
