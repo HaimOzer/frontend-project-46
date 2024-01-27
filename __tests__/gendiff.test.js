@@ -1,6 +1,5 @@
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import getFixturesPath from '../src/getFixturesPath.js';
 import getExtension from '../src/getExtension.js';
 import getContentFile from '../src/getContentFile.js';
 import genDiff from '../src/getDifferents.js';
@@ -11,18 +10,7 @@ import parse from '../src/parsers.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-describe('getFixturesPath function', () => {
-  test('correct path to __fixtures__ directory', () => {
-    const expectedPath = path.resolve(
-      __dirname,
-      '..',
-      '__fixtures__',
-      'file1.json',
-    );
-    expect(getFixturesPath('file1.json')).toBe(expectedPath);
-  });
-});
+const getFixturesPath = (file) => path.resolve(__dirname, '..', '__fixtures__', file);
 
 describe('getExtension function', () => {
   test('correct extension of file', () => {
@@ -41,9 +29,9 @@ describe('parse function', () => {
 
 describe('genDiff function', () => {
   const cases = ['json', 'yaml', 'yml'];
-  const expectedStylish = getContentFile('expectedStylishFormat.txt');
-  const expectedPlain = getContentFile('expectedPlainFormat.txt');
-  const expectedJSON = getContentFile('expectedJsonFormat.txt');
+  const expectedStylish = getContentFile(getFixturesPath('expectedStylishFormat.txt'));
+  const expectedPlain = getContentFile(getFixturesPath('expectedPlainFormat.txt'));
+  const expectedJSON = getContentFile(getFixturesPath('expectedJsonFormat.txt'));
 
   test.each(cases)('correctly generates differences tree', (extension) => {
     const data1 = getFixturesPath(`file1.${extension}`);
@@ -62,9 +50,8 @@ describe('genDiff function', () => {
 
   test('should throw an error for unknown format type', () => {
     const data = getFixturesPath('file1.json');
-    expect(() => formatSelector(data, 'stringify')).toThrow(
-      'Unknown format type',
-    );
+    const format = 'js';
+    expect(() => formatSelector(data, format)).toThrow(`Unknown type! Type ${format} is not supported!`);
   });
 });
 
@@ -76,7 +63,7 @@ describe('stylishFormat', () => {
     const callStylishFormat = () => stylishFormat(tree);
 
     // Expecting an error to be thrown with a specific message
-    expect(callStylishFormat).toThrow('Unknown type! unknown is wrong!');
+    expect(callStylishFormat).toThrow(`Unknown type! ${tree[0].type} is wrong!`);
   });
 });
 
@@ -88,6 +75,6 @@ describe('plainFormat', () => {
     const callPlainFormat = () => plainFormat(tree);
 
     // Expecting an error to be thrown with a specific message
-    expect(callPlainFormat).toThrow('Unknown type! unknown is wrong!');
+    expect(callPlainFormat).toThrow(`Unknown type! ${tree[0].type} is wrong!`);
   });
 });
