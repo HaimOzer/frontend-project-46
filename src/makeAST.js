@@ -12,32 +12,34 @@ import _ from 'lodash';
  *   - children {Array} - An array of objects representing differences if the property is nested.
  */
 
-const makeReport = (data1, data2) => {
+const makeAST = (data1, data2) => {
   const unitedFiles = { ...data1, ...data2 };
   const keys = _.sortBy(Object.keys(unitedFiles), (key) => key);
 
-  const compareData = [];
-
-  keys.forEach((key) => {
+  return keys.map((key) => {
     const value1 = data1[key];
     const value2 = data2[key];
 
     if (!_.has(data1, key) && _.has(data2, key)) {
-      compareData.push({ key, type: 'added', value: value2 });
-    } else if (_.has(data1, key) && !_.has(data2, key)) {
-      compareData.push({ key, type: 'removed', value: value1 });
-    } else if (_.isObject(value1) && _.isObject(value2)) {
-      compareData.push({ key, type: 'nested', children: makeReport(value1, value2) });
-    } else if (!_.isEqual(value1, value2)) {
-      compareData.push({
-        key, type: 'updated', value1, value2,
-      });
-    } else {
-      compareData.push({ key, type: 'unchanged', value: value1 });
+      return { key, type: 'added', value: value2 };
     }
-  });
 
-  return compareData;
+    if (_.has(data1, key) && !_.has(data2, key)) {
+      return { key, type: 'removed', value: value1 };
+    }
+
+    if (_.isObject(value1) && _.isObject(value2)) {
+      return { key, type: 'nested', children: makeAST(value1, value2) };
+    }
+
+    if (!_.isEqual(value1, value2)) {
+      return {
+        key, type: 'updated', value1, value2,
+      };
+    }
+
+    return { key, type: 'unchanged', value: value1 };
+  });
 };
 
-export default makeReport;
+export default makeAST;

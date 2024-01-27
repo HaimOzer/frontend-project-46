@@ -9,16 +9,16 @@
 
 import parse from './parsers.js';
 import getContentFile from './getContentFile.js';
-import makeReport from './makeAST.js';
 import getExtension from './getExtension.js';
 import formatSelector from './formatters/index.js';
+import makeAST from './makeAST.js';
 
 function genDiff(file1, file2, format = 'stylish') {
   const contentFile1 = getContentFile(file1);
   const contentFile2 = getContentFile(file2);
   const parsedFile1 = parse(contentFile1, getExtension(file1));
   const parsedFile2 = parse(contentFile2, getExtension(file2));
-  const diffStructure = makeReport(parsedFile1, parsedFile2);
+  const diffStructure = makeAST(parsedFile1, parsedFile2);
   const result = formatSelector(diffStructure, format);
   return result;
 }
