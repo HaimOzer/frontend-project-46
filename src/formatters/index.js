@@ -20,7 +20,7 @@ const formatSelector = (data, format) => {
     case 'json':
       return jsonFormat(data);
     default:
-      throw new Error('Unknown format type');
+      throw new Error(`Unknown type! Type ${format} is not supported!`);
   }
 };
 
