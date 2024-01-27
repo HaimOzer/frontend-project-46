@@ -6,10 +6,10 @@
  */
 
 import fs from 'fs';
-import getFixturesPath from './getFixturesPath.js';
+import getAbsolutePath from './getAbsolutePath.js';
 
 const getContentFile = (file) => {
-  const filepath = getFixturesPath(file);
+  const filepath = getAbsolutePath(file);
   const fileContent = fs.readFileSync(filepath, { encoding: 'utf8' });
   return fileContent;
 };

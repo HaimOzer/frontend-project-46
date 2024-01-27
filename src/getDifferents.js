@@ -9,7 +9,7 @@
 
 import parse from './parsers.js';
 import getContentFile from './getContentFile.js';
-import makeReport from './makeReport.js';
+import makeReport from './makeAST.js';
 import getExtension from './getExtension.js';
 import formatSelector from './formatters/index.js';
 
