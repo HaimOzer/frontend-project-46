@@ -1,16 +1,10 @@
+import path from 'path';
 /**
- * Resolves the absolute path to a file within the '__fixtures__' directory.
+ * Resolves the absolute path of a given file or directory.
  *
- * @param {string} file - The name of the file within the '__fixtures__' directory.
- * @returns {string} The absolute path to the specified file.
+ * @param {string} filepath - The relative path of the file or directory.
+ * @returns {string} - The absolute path.
  */
 
-import path from 'path';
-// import { fileURLToPath } from 'url';
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-
-// const getFixturesPath = (file) => path.resolve(__dirname, '..', '__fixtures__', file);
 const getAbsolutePath = (filepath) => path.resolve(process.cwd(), filepath);
 export default getAbsolutePath;
