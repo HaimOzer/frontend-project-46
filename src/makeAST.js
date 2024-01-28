@@ -19,21 +19,26 @@ const makeAST = (data1, data2) => {
   return keys.map((key) => {
     const value1 = data1[key];
     const value2 = data2[key];
-    let result;
+
     if (!_.has(data1, key) && _.has(data2, key)) {
-      result = { key, type: 'added', value: value2 };
-    } else if (_.has(data1, key) && !_.has(data2, key)) {
-      result = { key, type: 'removed', value: value1 };
-    } else if (_.isObject(value1) && _.isObject(value2)) {
-      result = { key, type: 'nested', children: makeAST(value1, value2) };
-    } else if (!_.isEqual(value1, value2)) {
-      result = {
+      return { key, type: 'added', value: value2 };
+    }
+
+    if (_.has(data1, key) && !_.has(data2, key)) {
+      return { key, type: 'removed', value: value1 };
+    }
+
+    if (_.isObject(value1) && _.isObject(value2)) {
+      return { key, type: 'nested', children: makeAST(value1, value2) };
+    }
+
+    if (!_.isEqual(value1, value2)) {
+      return {
         key, type: 'updated', value1, value2,
       };
-    } else {
-      result = { key, type: 'unchanged', value: value1 };
     }
-    return result;
+
+    return { key, type: 'unchanged', value: value1 };
   });
 };
 
