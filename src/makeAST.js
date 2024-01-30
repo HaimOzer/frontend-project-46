@@ -38,7 +38,9 @@ const makeAST = (data1, data2) => {
       };
     }
 
-    return { key, type: 'unchanged', value: value1 };
+    if (_.isEqual(value1, value2)) {
+      return { key, type: 'unchanged', value: value1 };
+    }
   });
 };
 
