@@ -13,11 +13,11 @@ import getExtension from './getExtension.js';
 import formatSelector from './formatters/index.js';
 import makeAST from './makeAST.js';
 
-function genDiff(file1, file2, format = 'stylish') {
-  const contentFile1 = getContentFile(file1);
-  const contentFile2 = getContentFile(file2);
-  const parsedFile1 = parse(contentFile1, getExtension(file1));
-  const parsedFile2 = parse(contentFile2, getExtension(file2));
+function genDiff(filepath1, filepath2, format = 'stylish') {
+  const contentFile1 = getContentFile(filepath1);
+  const contentFile2 = getContentFile(filepath2);
+  const parsedFile1 = parse(contentFile1, getExtension(filepath1));
+  const parsedFile2 = parse(contentFile2, getExtension(filepath2));
   const diffStructure = makeAST(parsedFile1, parsedFile2);
   const result = formatSelector(diffStructure, format);
   return result;
